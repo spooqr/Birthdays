@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, width=device-width">
+        <title>Birthdays</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="display-2 text-center">Add a birthday</h1>
+            <form action="/added" method="post">
+                <div class="form-floating mb-3">
+                    <input class="form-control" autocomplete="off" name="name" type="text">
+                    <label for="name" class="form-label">Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" autocomplete="off" name="month" type="text">
+                    <label for="month" class="form-label">Month</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input class="form-control" autocomplete="off" name="day" type="text">
+                    <label for="day" class="form-label">Day</label>
+                </div>
+                <input type="submit" value="Add" class="btn btn-success">
+            </form>
+        </div>
+        <div class="container">
+            <h1 class="display-3 text-center">Added birthdays</h1>
+            <table class="table table-striped container-fluid">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Birthday</th>
+                    </tr>
+                </thead>
+
+                {% for row in rows %}
+                    <tr>
+                        <td>{{ row[0] }}</td>
+                        <td>{{ row[1] }}</td>
+                        <td>{{ row[2] }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </body>
+</html>
